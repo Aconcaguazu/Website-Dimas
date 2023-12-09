@@ -1,0 +1,654 @@
+body {
+    background-color: #000;
+    color: #fff;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Contoh animasi ketika bagian muncul */
+#about,
+#resume,
+/* ...tambahkan ID bagian-bagian lainnya */
+{
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+#about.active,
+#resume.active,
+/* ...tambahkan ID bagian-bagian lainnya */
+{
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+.navbar {
+    background-color: transparent;
+    padding: 15px 0;
+}
+
+.navbar-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.menu-icon {
+    font-size: 24px;
+    cursor: pointer;
+    color: #fff;
+    display: none; /* Sembunyikan lambang hamburger secara default */
+}
+
+.menu {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+}
+
+.menu li {
+    margin: 0 15px;
+}
+
+.menu a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.menu a:hover {
+    color: #ffd700;
+}
+
+/* Update your existing CSS or create a new style.css file */
+
+/* General styles for smaller screens */
+@media screen and (max-width: 768px) {
+  .menu {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: transparent;
+    text-align: center;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+  }
+
+  .menu li {
+    margin: 15px 0;
+  }
+
+  .menu-icon {
+    display: none;
+  }
+
+  .navbar-container {
+    flex-direction: row;
+  }
+}
+
+/* General styles for larger screens */
+@media screen and (min-width: 769px) {
+  .menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: static;
+    background-color: transparent;
+    box-shadow: none;
+  }
+
+  .menu li {
+    margin: 0 15px;
+  }
+}
+
+/* Sticky navbar on scroll */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: transparent;
+  padding: 15px 0;
+  z-index: 1000;
+}
+
+/* Add padding to the content when navbar is fixed */
+body {
+  padding-top: 70px; /* Adjust this value based on your navbar height */
+}
+
+/* Add this to handle active class on scroll */
+body {
+  scroll-behavior: smooth;
+}
+
+/* Add this to handle active class on scroll */
+.section {
+  margin-top: -70px; /* Adjust this value based on your navbar height */
+  padding-top: 70px; /* Adjust this value based on your navbar height */
+  box-sizing: border-box;
+}
+
+.section.active {
+  background-color: #333; /* Change this to the desired background color when the section is active */
+}
+
+
+/*css untuk anu*/
+.content {
+    max-width: 800px;
+    margin: 50px auto;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.text-section {
+    flex: 1;
+    padding-right: 20px;
+}
+
+h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+p {
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+.image-section {
+    width: 300px;
+    height: 300px;
+}
+
+.image-section img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+}
+  
+  /* Responsive Styles */
+  @media screen and (max-width: 768px) {
+    .menu {
+      display: none;
+      flex-direction: column;
+      text-align: center;
+      position: absolute;
+      top: 60px;
+      left: 0;
+      right: 0;
+      background-color: #333;
+      padding: 10px;
+    }
+  
+    .menu.show {
+      display: flex;
+    }
+  
+    .menu-icon {
+      display: block;
+    }
+  }
+
+/* Main Styles */
+.main {
+  background-color: #0F0F0F;
+  padding: 50px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  position: relative;
+  z-index: 1; /* Ensure it's below the service */
+}
+
+/* Service Styles */
+.service {
+  background-color: #000;
+  padding: 50px 0;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  position: relative;
+  z-index: 2; /* Ensure it's above the content */
+}
+
+.service-title {
+  text-align: center;
+  font-size: 2em;
+  margin-bottom: 30px;
+  color: #fff; /* Set the default text color to white */
+}
+
+.service-title span {
+  color: #FFCC70; /* Set the color for the specific text within the span element */
+}
+
+.service-list {
+  list-style: none;
+  display: flex;
+  justify-content: space-around;
+  padding: 0; /* Remove default padding */
+}
+
+.service-item {
+  text-align: center;
+  margin-bottom: 30px;
+  position: relative;
+  z-index: 1; /* Ensure it's below the pseudo-element */
+  flex: 1; /* Make service items take equal width */
+  overflow: hidden; /* Hide overflow for skew effect */
+}
+
+
+
+.service-content-box {
+  position: relative;
+  z-index: 2; /* Ensure it's above the pseudo-element */
+  padding: 20px; /* Add padding to the content box */
+}
+
+.service-icon-box img {
+  max-width: 100%;
+}
+
+.service-item-title {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+  color: #fff; /* Set text color to white for better visibility */
+}
+
+.service-item-text {
+  color: #555;
+}
+
+/* Article Styles */
+.resume {
+  max-width: 90%;
+  margin: 50px auto;
+  background-color: #0F0F0F;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  z-index: 2;
+}
+
+.resume header {
+  text-align: center;
+  border-bottom: 2px solid #ddd;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+.resume header .h2 {
+  color: #FFCC70;
+}
+
+/* Timeline Styles */
+.timeline {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+
+.h2 {
+  color: #FFCC70; /* Warna kuning */
+}
+
+.education-wrapper,
+.experience-wrapper {
+  max-width: 45%;
+  margin: 0 auto;
+  float: left;
+  clear: both;
+  margin-bottom: 30px; /* Atur margin bawah agar tidak terlalu dekat */
+}
+
+@media screen and (max-width: 768px) {
+  .education-wrapper,
+  .experience-wrapper {
+    max-width: 100%;
+    float: none;
+  }
+}
+
+
+.icon-box {
+  position: relative;
+  background: linear-gradient(to right, #000, #333); /* Ganti dengan warna latar yang sesuai */
+  width: 50px;
+  height: 50px;
+  border-radius: 50%; /* Mengubah ke bentuk lingkaran */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 23px;
+  color: #ffd700; /* Ganti dengan warna kuning */
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5); /* Memberikan efek bayangan */
+  z-index: 1;
+}
+
+.icon-box::before {
+  content: "";
+  position: absolute;
+  inset: 0; /* Mengisi seluruh area */
+  background: #333; /* Ganti dengan warna latar belakang yang sesuai */
+  border-radius: inherit;
+  z-index: -1;
+}
+
+/* Skill Styles */
+.skill {
+  max-width: 100%;
+  margin-bottom: 30px;
+}
+
+.skills-title {
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+.skills-list {
+  list-style: none;
+  padding: 0;
+}
+
+.skills-item {
+  margin-bottom: 20px;
+  transform: translateY(20px); /* Geser elemen ke bawah 20px secara awal */
+  transition: opacity 0.5s ease, transform 0.5s ease; /* Terapkan transisi */
+}
+
+.skills-item.active {
+  opacity: 1; /* Setel opasitas menjadi 1 ketika elemen aktif */
+  transform: translateY(0); /* Kembalikan elemen ke posisi awal */
+}
+
+
+.title-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.skill-progress-bg {
+  height: 10px;
+  background-color: #ecf0f1;
+  border-radius: 5px;
+  margin-top: 5px;
+}
+
+.skill-progress-fill {
+  height: 100%;
+  border-radius: 5px;
+  background-color: #FFCC70;
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 768px) {
+  .resume {
+    padding: 10px;
+  }
+}
+
+/* Portfolio Section */
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px; /* Adjust the height based on your design */
+}
+
+.article-title {
+  margin: 0; /* Remove default margin to ensure precise alignment */
+}
+
+.portfolio {
+  padding: 50px 0;
+}
+
+/* Add this to make small images */
+.project-img-small img {
+  max-width: 100%; /* Make sure the image doesn't exceed its container */
+  height: auto; /* Maintain the image's aspect ratio */
+}
+
+/* Add this to align the images */
+.project-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.project-item {
+  width: calc(33.33% - 20px); /* Adjust the width based on your preference */
+  margin-bottom: 20px;
+}
+
+.project-item:hover {
+  transform: scale(1.05);
+}
+
+.project-item a {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.project-img {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px 8px 0 0;
+}
+
+.project-img img {
+  width: 100%;
+  height: auto;
+  transition: transform 0.3s ease-in-out;
+}
+
+.project-img:hover img {
+  transform: scale(1.1);
+}
+
+.project-title {
+  font-size: 1.5rem;
+  margin: 10px 0 5px;
+  color: #fff; /* Text color similar to content section */
+  text-align: center;
+}
+
+.project-category {
+  font-size: 1rem;
+  color: #777; /* Color similar to content section */
+}
+
+.project-item-icon-box {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: #fff;
+  padding: 8px;
+  border-radius: 50%;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.project-item-icon-box ion-icon {
+  font-size: 1.5rem;
+  color: #555; /* Icon color similar to content section */
+}
+
+/* Gaya untuk memposisikan elemen-elemen di bagian kontak */
+.contact {
+  padding: 50px;
+  background-color: #0f0f0f;
+}
+
+.contact header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+/* Add this to your existing CSS or create a new style.css file */
+
+.contacts-section {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 30px;
+  background-color: #f8f8f8;
+  display: flex;
+  justify-content: space-between; /* Added to align items left and right */
+  flex-wrap: wrap; /* Allow items to wrap to the next line on smaller screens */
+}
+
+.contacts-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.icon-box {
+  margin-right: 15px;
+}
+
+.contact-info {
+  flex-grow: 1;
+}
+
+.contact-title {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.contact-link {
+  color: #333;
+  text-decoration: none;
+}
+
+.separator {
+  height: 1px;
+  background-color: #ccc;
+  margin: 20px 0;
+  width: 100%; /* Full-width separator */
+}
+
+.social-list {
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+}
+
+.social-item {
+  margin-left: 15px; /* Adjusted to create space between social icons */
+}
+
+.social-link {
+  color: #333;
+  text-decoration: none;
+  font-size: 24px;
+}
+
+.social-link:hover {
+  color: #007bff;
+}
+
+/* Added styles for responsiveness */
+@media (max-width: 600px) {
+  .contacts-section {
+    flex-direction: column; /* Stack items vertically on smaller screens */
+    align-items: center; /* Center items on smaller screens */
+  }
+
+  .contact-item,
+  .social-item {
+    margin-bottom: 15px; /* Adjusted margin for better spacing on smaller screens */
+  }
+}
+
+/* Add this to your existing CSS or create a new style.css file */
+
+/* General styles for smaller screens */
+@media screen and (max-width: 600px) {
+  body {
+    font-size: 14px; /* Adjust the font size for better readability on small screens */
+  }
+
+  .navbar {
+    padding: 10px 0; /* Reduce padding on the navbar for a more compact design */
+  }
+
+  .menu-icon {
+    display: block;
+  }
+
+  .menu {
+    top: 50px; /* Adjust the top position to avoid overlapping with the navbar */
+  }
+
+  .menu li {
+    margin: 10px 0;
+  }
+
+  .content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .text-section,
+  .image-section {
+    width: 100%; /* Make text and image sections take full width on small screens */
+    padding: 20px;
+  }
+
+  h1 {
+    font-size: 24px; /* Adjust heading font size */
+  }
+
+  .image-section {
+    margin-top: 20px;
+  }
+
+  .service-list,
+  .skills-list,
+  .project-list,
+  .contacts-list,
+  .social-list {
+    flex-direction: column;
+  }
+
+  .service-item,
+  .skills-item,
+  .project-item,
+  .contact-item,
+  .social-item {
+    width: 100%;
+  }
+
+  .resume,
+  .service,
+  .main,
+  .portfolio,
+  .contact {
+    padding: 30px; /* Adjust padding for better spacing on small screens */
+  }
+
+  .separator {
+    margin: 10px 0;
+  }
+}
